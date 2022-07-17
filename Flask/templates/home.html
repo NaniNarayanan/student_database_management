@@ -1,0 +1,33 @@
+ <html>
+	<head>
+		<title>STUDENT DATABASE</title>
+
+	</head>
+	<body>
+		<h1>Student Managment Details</h1>
+
+		<p><a href="{{url_for('addUsers')}}">Add Users</a></p>
+			<table>
+				<tr>
+					<th>Sid</th>
+					<th>Std_name</th>
+					<th>Department</th>
+					<th>Lecture</th>
+					<th>EDIT</th>
+					<th>DELETE</th>
+				</tr>
+				{% for data in studentdetail %}
+					<tr>
+						<td>{{data[0]}}</td>
+						<td>{{data[1]}}</td>
+						<td>{{data[2]}}</td>
+						<td>{{data[3]}}</td>
+						<td> <a href="{{url_for('editUsers',Sid=data[0])}}">EDIT</a> </td>
+						<td> <a href="{{url_for('deleteUsers',Sid=data[0])}}">DELETE</a> </td>
+					</tr>
+				
+				{% endfor %}
+			</table>
+	</body>
+	
+</html>
